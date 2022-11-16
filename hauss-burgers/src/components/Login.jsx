@@ -1,5 +1,6 @@
 
 function Login() {
+ 
     return (
         <div id="login-container">
             <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -9,14 +10,14 @@ function Login() {
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
             <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Sedgwick+Ave&display=swap" rel="stylesheet" />
             <link href="./login.css" rel="stylesheet"/>
-            <img alt="flag-color" src="img/flag-colors.png" class="flag-colors" />
+            <img alt="flag-color" src="img/flag-colors.png" className="flag-colors" />
             <img alt="hauss-logo" src="img/logo-hauss.png" class="hauss-logo" />
             <h2 class="login-text">LogIn</h2>
             <div class="login-access" >
                 <label for="user" class="user-name">USER</label>
                 <input type="text" id="user" />
                 <label for="password" class="password">PASSWORD</label>
-                <input type="text" id="password" />
+                <input type="password" id="password" />
                 <div class="login-buttom">
                     <p>Entry</p>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flame" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">

@@ -11,9 +11,9 @@ function Login(){
         <img alt= "hauss-logo" src= "img/logo-hauss.png" />
         <h2>Login</h2>
        
-        <label for= "user">USER</label>
+        <label htmlFor= "user">USER</label>
         <input type= "text" id= "user"/>
-        <label for= "password">PASSWORD</label>
+        <label htmlFor= "password">PASSWORD</label>
         <input type= "text" id= "password"/>
         <img alt= "burger-login" src= "img/burger-login.png"/>
         <p>Fast and delicious...</p>
