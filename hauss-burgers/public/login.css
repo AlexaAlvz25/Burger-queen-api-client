@@ -72,12 +72,14 @@ a:visited, a:link, a:active{
         grid-column-end: 3;
         grid-row-start: 2;
         grid-row-end: 3;
+        margin-top: 50px;
+    }
+    form{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 100px;
     }
-    .user-name, .password{
+    .user-email, .password{
         font-size: 24px;
         align-self: flex-start;
         padding-left: 30px;
@@ -94,6 +96,7 @@ a:visited, a:link, a:active{
         justify-self: flex-end;
         max-width: 90%;
         max-height: 90%;
+        margin-top: 4.5rem;
     }
     .login-buttom{
         display: flex;
@@ -103,11 +106,13 @@ a:visited, a:link, a:active{
         border-radius: 20px;
         width: 150px;
         height: 42px;
-        margin: 30px 0 30px 0;
+        margin: 30px auto;
         box-shadow: -5px -5px 0px var(--orange);
     }
     .button-Entry{
         font-size: 25px;
+        background-color:var(--lightOrange);
+
     }
     input{
         background: none;
@@ -120,5 +125,12 @@ a:visited, a:link, a:active{
         color: #FFFFFF;
         font-size: x-large;
         font-family: var(--generalfont);
+    }
+    h3:focus {
+        visibility: hidden;
+    }
+    h3{
+        visibility: hidden;
+        font-size: large;
     }
 }
