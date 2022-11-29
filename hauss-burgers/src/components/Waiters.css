@@ -29,9 +29,14 @@ body{
     background-image: url("../img/fondo_tablet.jpg");
     background-size: contain;
     min-height: 1024px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 15% 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+  .header-container{
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    height: 20rem;
   }
   .hauss-logo{
     max-width: 10rem;
@@ -39,14 +44,13 @@ body{
     margin: 3rem 0 0 3rem;
   }
   .flag-colors{
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    display: flex;
-    justify-self: flex-end;
     width: 37px;
     height: 190px;
+  }
+  .button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: -4rem;
   }
   #breakfastBtn, #AllDayBtn{
     height: 5rem;
@@ -58,53 +62,47 @@ body{
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: bold;
-    margin: -5rem auto 0 auto;
-    grid-row-start: 2;
-    grid-row-end: 2;
+    margin: 0 4rem;
   }
   .active{
     background-color: var(--lightOrange);
     color: #000000;
   }
-  #breakfastBtn{
-    grid-column-start: 2;
-    grid-column-end: 3;
-  }
-  #AllDayBtn{
-    grid-column-start: 3;
-    grid-column-end: 4;
-  }
-  #products-container{
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 2;
+  #products-container, #resumen-container{
     width: 85%;
-    margin: 4rem auto 0 auto;
     font-size: x-large;
+    margin: 4rem auto;
   }
-  #products-container th{
+  #products-container tr th{
     font-family: var(--titlefont);
     border-bottom: 2px solid var(--yellow);
     font-size: large;
-    height: 1rem;
   }
-  #products-container td{
-    height: 50px;
+  #products-container th:first-child{
+    width: 50%;
+  }
+  #products-container th:nth-child(2n){
+    width: 25%;
+  }
+  #products-container tr td{
     width: auto;
-    margin-bottom: -1rem;
   }
   .products-center{
     text-align: center;
   }
+  .count-container{
+    display: flex;
+    justify-content: center;
+  }
+  .btn-decrese, .btn-increse{
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: large;
+    font-weight: 600;
+    margin: 0 2rem;
+  }
   #resumen-container{
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    width: 85%;
-    height: auto;
-    margin: 4rem auto;
-    font-size: x-large;
     border: 2px solid var(--lightOrange);
     border-radius: 2rem;
   }
