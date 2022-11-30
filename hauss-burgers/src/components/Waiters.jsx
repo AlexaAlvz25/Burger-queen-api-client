@@ -10,8 +10,46 @@ function Waiters() {
     items:[]
   })
 
+  const handleDeleteItem=(item)=>{
+    const product = order.items.find((product) => product.id === item.id)
+    if(product) {
+      setOrder({...order, items:[...order.items.map((element) => {
+        if(element.id !== item.id) {
+          return element
+        }else{
+          if(element.qty < 1) {
+            return element
+          }else{
+            return {...item, qty: item.qty-1, total: (item.qty-1)*item.price}
+          }
+        }
+      })]})
+    }else{
+      setOrder({...order, items:[...order.items, item]});
+    }
+  }
+
   const handleAddItem=(item)=>{
-    setOrder({...order, items:[...order.items, item]});
+    const product = order.items.find((product) => product.id === item.id)
+    if(product) {
+      setOrder({...order, items:[...order.items.map((element) => {
+        if(element.id !== item.id) {
+          return element
+        }else{
+          return {...item, qty: item.qty+1, total: (item.qty+1)*item.price}
+        }
+      })]})
+    }else{
+      setOrder({...order, items:[...order.items, item]});
+    }
+  }
+
+  const handleSumTotal=()=>{
+    let totalCount = 0;
+    order.items.map((element)=>{
+      totalCount += element.total;
+    })
+    return totalCount
   }
 
   return (
@@ -36,18 +74,18 @@ function Waiters() {
         <tr>
           <th>Description</th>
           <th>Unit</th>
-          <th>Total</th>
+          <th>Price</th>
         </tr>
         {order&& order.items.map(item=>{
          {return (<tr>
           <td className='products-center'>{item.name}</td>
-          <UnitDishes props={item.qty} propsDos={setOrder}/>
-          <td className='products-center'>{item.price}</td>
+          <UnitDishes item={item} handleAddItem={handleAddItem} handleDeleteItem={handleDeleteItem}/>
+          <td className='products-center'>$ {item.total}.00</td>
         </tr>)}
         })}
 
         </table>
-        <p id='total'>Total: $ 40.00</p>
+        <p id='total'>Total: $ {handleSumTotal()}.00</p>
         <div className='btns'>
           <button id="cancelBtn">Cancel</button>
           <button id="orderBtn">Order</button>

@@ -1,30 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
 
-function UnitDishes({qty, setOrder}) {
-  const [unit, setUnit] = useState(1);
-
-  //increase counter
-  const increase = () => {
-    if(unit>=0){
-      setUnit(unit => unit + 1);
-      return setOrder(qty += 1)
-    }
-  };
- 
-  //decrease counter
-  const decrease = () => {
-    if(unit>=1){
-      setUnit(unit => unit - 1);
-      return setOrder({qty : unit})
-    }
-  };
+function UnitDishes({item, handleAddItem, handleDeleteItem}) {
 
   return(
     <div className="count-container">
-      <button className="btn-decrese" onClick={decrease}>-</button>
-      <p className="valueCount">{unit}</p>
-      <button className="btn-increse" onClick={increase}>+</button>
+      <button className="btn-decrese" onClick={() => handleDeleteItem(item)}>-</button>
+      <p className="valueCount">{item.qty}</p>
+      <button className="btn-increse" onClick={() => handleAddItem(item)}>+</button>
     </div>
   )
 }

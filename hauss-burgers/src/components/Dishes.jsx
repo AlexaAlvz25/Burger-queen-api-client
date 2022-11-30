@@ -6,7 +6,7 @@ function Dishes({dish, handleAddItem}) {
       <td className="products-center"> {dish.name} </td>
       <td className="products-center"> $ {dish.price}.00 </td>
       <td>
-        <button onClick={()=>{handleAddItem({id:dish.id , name:dish.name, price:dish.price, qty:1})}}>Agregar</button>
+        <button className="btn-Add" onClick={()=>{handleAddItem({id:dish.id , name:dish.name, price:dish.price, qty: 1, total:dish.price})}}>Add</button>
       </td>
     </tr>
   )
