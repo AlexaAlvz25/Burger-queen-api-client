@@ -1,14 +1,18 @@
+/* eslint-disable react/no-unknown-property */
 import { useState } from 'react'
 import MenuBreakfast from './MenuBreakfast'
 import UnitDishes from "./UnitDishes"
 import './Waiters.css'
+import handleAddOrder from './Orders'
 
-function Waiters() {
+
+function Waiters({user}) {
   const [order, setOrder]= useState({
     table:'',
-    user:'',
+    user: user.email,
     items:[]
   })
+  console.log(order.user)
 
   const handleDeleteItem=(item)=>{
     const product = order.items.find((product) => product.id === item.id)
@@ -66,7 +70,12 @@ function Waiters() {
       <div id='resumen-container'>
         <div className='table'>
           <h3>Table:</h3>
-          <input type="number" id='table-number' />
+        <input onKeyPress = {() => { 
+          let inputValue = document.querySelector('#table-number').value
+          let asciiCode = inputValue.charCodeAt(0)
+          asciiCode >= 48 && asciiCode <= 57 ?  
+          setOrder({...order, table: document.querySelector('#table-number').value})
+          : console.log('Enter a number')} } type="number" id='table-number' />
           <h2>Resumen</h2>
         </div>
         
@@ -88,7 +97,7 @@ function Waiters() {
         <p id='total'>Total: $ {handleSumTotal()}.00</p>
         <div className='btns'>
           <button id="cancelBtn">Cancel</button>
-          <button id="orderBtn">Order</button>
+          <button id="orderBtn"  onClick={ () => {  handleAddOrder(order) }} >Order</button>
         </div>
       </div>
     </div>
