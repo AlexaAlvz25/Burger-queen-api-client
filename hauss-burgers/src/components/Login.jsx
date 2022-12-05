@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { validateUser } from '../axios.js'
+import { validateUser } from '../axios.js';
+import Waiters from './Waiters'
 
-function Login() {
+function Login({handleSetUser}) {
     const navigate = useNavigate();
     return (
         <div id="login-container">
@@ -24,7 +25,9 @@ function Login() {
                         .then((users) => {
                             users.data.forEach((waiter) => {
                                 if(emailUser == waiter.email && userPassword == waiter.password && waiter.roles == 'waiters') {
-                                    navigate("/waiters");
+                                    navigate("/waiters")
+                                    handleSetUser({email: waiter.email, role:'waiters'})
+
                                 }else if(emailUser == waiter.email && userPassword == waiter.password && waiter.roles == 'kitchen') {
                                     navigate("/kitchen")
                                 }else{
