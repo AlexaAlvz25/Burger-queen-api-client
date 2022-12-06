@@ -13,8 +13,8 @@ function App() {
     <div>
       {user?<Routes>
       
-        <Route path='/waiters' element={ <Waiters user={user} /> }/>
-        <Route path='/kitchen' element={ <Kitchen /> }/>
+        <Route path='/waiters' element={ <Waiters handleSetUser={handleSetUser} user={user} /> }/>
+        <Route path='/kitchen' element={ <Kitchen handleSetUser={handleSetUser} /> }/>
       </Routes>:
       <Routes>
       <Route path='/' element={ <Login handleSetUser={handleSetUser}/> }/>
