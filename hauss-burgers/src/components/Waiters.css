@@ -180,4 +180,9 @@ body{
     text-transform: uppercase;
     font-weight: bold;
   }
+  .icon-logout{
+    align-self: center;
+    margin-left: 48rem;
+    margin-bottom: 4rem;
+  }
 }

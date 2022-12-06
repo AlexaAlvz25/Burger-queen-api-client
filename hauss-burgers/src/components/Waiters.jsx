@@ -1,18 +1,19 @@
 /* eslint-disable react/no-unknown-property */
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import MenuBreakfast from './MenuBreakfast'
 import UnitDishes from "./UnitDishes"
 import './Waiters.css'
 import handleAddOrder from './Orders'
 
 
-function Waiters({user}) {
+function Waiters({user, handleSetUser}) {
   const [order, setOrder]= useState({
     table:'',
     user: user.email,
     items:[]
   })
-  console.log(order.user)
+  const navigate = useNavigate();
 
   const handleDeleteItem=(item)=>{
     const product = order.items.find((product) => product.id === item.id)
@@ -60,6 +61,11 @@ function Waiters({user}) {
     <div id="waiters-container">
       <header className='header-container'>
         <img alt="hauss-logo" src="img/logo-hauss.png" className="hauss-logo" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-logout" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round" onClick= { () => { handleSetUser(null) ; navigate("/") }}>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+            <path d="M7 12h14l-3 -3m0 6l3 -3" />
+          </svg>
         <img alt="flag-color" src="img/flag-colors.png" className="flag-colors" />
       </header>
       <div className="button-container">
@@ -96,8 +102,22 @@ function Waiters({user}) {
         </table>
         <p id='total'>Total: $ {handleSumTotal()}.00</p>
         <div className='btns'>
-          <button id="cancelBtn">Cancel</button>
-          <button id="orderBtn"  onClick={ () => {  handleAddOrder(order) }} >Order</button>
+          <button id="cancelBtn" onClick={() => {
+            setOrder({
+              table:'',
+              user: user.email,
+              items:[]
+            });
+            document.querySelector('#table-number').value = '';
+          }}>Cancel</button>
+          <button id="orderBtn"  onClick={ () =>
+           {  handleAddOrder(order) ; 
+              setOrder({
+              table:'',
+              user: user.email,
+              items:[]
+            });
+            document.querySelector('#table-number').value = ''}} >Order</button>
         </div>
       </div>
     </div>
