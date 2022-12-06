@@ -1,0 +1,81 @@
+/** Globals Config **/
+:root{
+    --yellow: #F7B23A;
+    --red: #E23033;
+    --green: #8CA637;
+    --lightOrange: #F39430;
+    --orange: #CB5817;
+    --titlefont: 'Sedgwick Ave', cursive;
+    --generalfont: 'Oswald', sans-serif;
+  }
+  body{
+    background-image: url('../img/fondo_tablet.jpg');
+    background-size: cover;
+    color: #FFFFFF;
+    font-family: var(--generalfont);
+    font-size: larger;
+  }
+
+  @media(min-width: 768px){
+        .kitchen-view{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        }
+        .kitchen-header{
+        display: flex;
+        height: 300px;
+        justify-content: space-between;
+        min-width: 100%;
+
+        }
+        .logo-hauss{
+        height: 110px;
+        margin: 25px 0 0 25px;
+        width: 110px;
+        }
+        .flag-colors{
+        height: 190px;
+        margin-left: ;
+        width: 37px;
+        
+        }
+        .kitchen-orders{
+        margin: 150px 100px 0 0;
+        font-size: 32px;
+        }
+        .order{
+        background-color: #FFFFFF;  
+        height: auto;
+        width: 200px;
+        }
+        .header-color{
+        background-color: #CB5817;
+        }
+        .order-resumen{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 30px;
+
+        }
+        p{
+        font-family: var(--generalfont);
+        font-size: 20px;
+        color: #000000;
+        }
+        button{
+        align-self: end;
+        background-color: #8CA637;
+        border-radius: 20px;
+        box-shadow: none;
+        color: #FFFFFF;
+        height: 24px;
+        justify-content: flex-end;
+        margin: 20px 15px 10px 0;
+        
+        width: 64px;
+        }
+}
