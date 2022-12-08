@@ -29,6 +29,7 @@ function Login({handleSetUser}) {
                                     handleSetUser({email: waiter.email, role:'waiters'})
 
                                 }else if(emailUser == waiter.email && userPassword == waiter.password && waiter.roles == 'kitchen') {
+                                    handleSetUser({email: waiter.email, role:'kitchen'})
                                     navigate("/kitchen")
                                 }else{
                                     document.querySelector('h3').style.visibility = 'visible';
