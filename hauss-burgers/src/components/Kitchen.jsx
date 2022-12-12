@@ -33,7 +33,7 @@ export default function Kitchen({handleSetUser, user}){
               </div>
             )
           })}
-          <button>DONE</button>
+          <button className="order-done">DONE</button>
         </article>)})}
       
   

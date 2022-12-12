@@ -49,6 +49,8 @@
         background-color: #FFFFFF;  
         height: auto;
         width: 200px;
+        display: flex;
+        flex-direction: column;
         }
         .header-color{
         background-color: #CB5817;
@@ -66,7 +68,7 @@
         font-size: 20px;
         color: #000000;
         }
-        button{
+        .order-done{
         align-self: end;
         background-color: #8CA637;
         border-radius: 20px;
@@ -75,7 +77,6 @@
         height: 24px;
         justify-content: flex-end;
         margin: 20px 15px 10px 0;
-        
         width: 64px;
         }
 }
